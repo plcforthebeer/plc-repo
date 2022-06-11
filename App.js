@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { Text, View, ScrollView, Image } from 'react-native';
+import { Text, View, ScrollView, Image, ImageBackground } from 'react-native';
 import styles from './styles.style.js';
 import FormComponent from './components/formComponent.js';
-import beerImage from './assets/beer.png';
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -19,12 +18,23 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.mainStyles}>
-        <ScrollView contentContainerStyle={{ flex: 0}}>
-          <View style={styles.headerContainer}>
-              <Text style={styles.header}> 
-                  Process Lethality Calculator 
-              </Text>
-              <Image style={styles.beerImage} source={require('./assets/beer.png')} />
+        <ImageBackground source={require('./assets/axiom-pattern.png')} resizeMode="repeat" style={styles.mainStyles}>
+        <ScrollView >
+          <View>
+          <ImageBackground
+              accessibilityRole="image"
+              style={[ styles.headerBackground ]}
+              imageStyle={styles.headerLogo}
+              source={require('./assets/beer2.png')}>
+            <Text
+              style={[
+              styles.headerText
+              ]}>
+              Process Lethality
+              {'\n'}
+              Calculator
+            </Text>
+          </ImageBackground>
           </View>
           <Text style={styles.beerPara}>
               This model will calculate Pasteurisation units of the process
@@ -39,6 +49,7 @@ export default class HomeScreen extends React.Component {
           </Text>
             <FormComponent />
           </ScrollView>
+          </ImageBackground>
       </View>
     );
   } 

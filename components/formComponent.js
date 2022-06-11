@@ -2,13 +2,11 @@ import * as React from "react";
 import {
   Text,
   View,
-  TextInput,
-  Alert,
+  TextInput
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { Button } from "react-native-paper";
 import { Formik } from "formik";
-import { Form } from "formik";
 import * as Yup from "yup";
 import styles from "../styles.style.js";
 
@@ -23,6 +21,7 @@ export default class HomeScreen extends React.Component {
       selected: "Time + Temp = PU" || temp + pu,
       result: "",
     };
+
   }
 
   handleChange(event) {
@@ -122,7 +121,6 @@ export default class HomeScreen extends React.Component {
         }}
       >
         {(props) => (
-          <form onSubmit={this.handleReset}>
           <View styles={styles.innerPara}>
             <TextInput
               onChangeText={props.handleChange("tref")}
@@ -236,7 +234,6 @@ export default class HomeScreen extends React.Component {
               Reset
             </Button>
           </View>
-          </form>
         )}
       </Formik>
     );
